@@ -3,7 +3,7 @@ export default function Hero() {
     <section className="hero">
       <div className="heroContent">
         <p>DESCUBRE MÁS</p>
-        <h1>Vive aventuras inolvidables</h1>
+        <h1>Donde la aventura comienza</h1>
         <span>
           Explora destinos fascinantes y culturas asombrosas con nuestros tours.
         </span>
