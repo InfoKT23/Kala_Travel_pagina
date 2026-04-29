@@ -55,26 +55,6 @@ a {
   box-shadow: 0 6px 20px rgba(0,0,0,.08);
 }
 
-.navbar ul {
-  display: flex;
-  list-style: none;
-  gap: 28px;
-  font-weight: 700;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #333;
-  padding: 8px 18px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-.navbar ul li a:hover {
-  background-color: #ff8c00;
-  color: white;
-}
-
 .logo {
   display: flex;
   align-items: center;
