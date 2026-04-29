@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Header() {
   return (
     <header>
@@ -8,7 +9,14 @@ export default function Header() {
       </div>
 
       <nav className="navbar">
-        <div className="logo">KALA TRAVEL</div>
+        <div className="logo">
+          <Image
+            src="/images/logo.png"
+            alt="Kala Travel"
+            width={160}
+            height={60}
+          />
+        </div>
         <ul>
           <li>Inicio</li>
           <li>Tours</li>
