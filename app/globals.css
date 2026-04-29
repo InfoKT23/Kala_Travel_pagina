@@ -96,12 +96,12 @@ button:hover {
   background-position: center;
   display: flex;
   align-items: center;
-  padding: 0 7%;
+  padding: 0 60px; /* 🔥 fijo, no porcentaje */
   color: white;
 }
 
 .heroContent {
-  max-width: 680px;
+  max-width: 1200px; /* más ancho */
 }
 
 .heroContent p {
