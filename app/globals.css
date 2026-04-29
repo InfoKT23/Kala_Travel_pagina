@@ -4,57 +4,95 @@
   padding: 0;
 }
 
+:root {
+  --azul: #2f7db7;
+  --azul-oscuro: #0b2d5c;
+  --naranja: #ff970f;
+  --gris: #f5f8fb;
+  --texto: #1b1b1b;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: #1b1b1b;
+  color: var(--texto);
   background: #fff;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .topbar {
-  background: #0b2d5c;
+  background: var(--azul-oscuro);
   color: white;
   padding: 10px 7%;
   display: flex;
-  gap: 25px;
+  justify-content: center;
+  gap: 30px;
   font-size: 14px;
 }
 
 .navbar {
-  padding: 22px 7%;
+  padding: 18px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .logo {
   font-weight: 900;
-  color: #0b2d5c;
-  font-size: 24px;
+  color: var(--azul);
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.logo::after {
+  content: " TRAVEL";
+  color: var(--naranja);
 }
 
 .navbar ul {
   display: flex;
   list-style: none;
   gap: 28px;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.navbar li {
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.navbar li:hover {
+  color: var(--naranja);
 }
 
 button {
-  background: #f6a623;
+  background: var(--naranja);
   border: none;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: 30px;
   color: white;
   font-weight: bold;
   cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: var(--azul);
+  transform: translateY(-2px);
 }
 
 .hero {
   min-height: 620px;
   background:
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+    linear-gradient(90deg, rgba(11,45,92,.85), rgba(47,125,183,.45)),
     url("/images/hero.jpg");
   background-size: cover;
   background-position: center;
@@ -65,29 +103,37 @@ button {
 }
 
 .heroContent {
-  max-width: 620px;
+  max-width: 680px;
+}
+
+.heroContent p {
+  color: var(--naranja);
+  font-weight: 900;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
 }
 
 .hero h1 {
-  font-size: 64px;
+  font-size: 66px;
   text-transform: uppercase;
-  margin: 15px 0;
+  line-height: 1;
+  margin-bottom: 20px;
 }
 
 .hero span {
   font-size: 22px;
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .section {
-  padding: 80px 7%;
+  padding: 85px 7%;
   text-align: center;
 }
 
 .section h2 {
-  font-size: 42px;
-  color: #0b2d5c;
+  font-size: 44px;
+  color: var(--azul-oscuro);
   margin-bottom: 15px;
 }
 
@@ -106,15 +152,24 @@ button {
 .card,
 .travelCard {
   background: white;
-  padding: 28px;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.1);
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  border-top: 5px solid var(--naranja);
+  transition: .3s;
+}
+
+.card:hover,
+.travelCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(47,125,183,.25);
 }
 
 .card h3,
 .travelCard h3 {
-  color: #0b2d5c;
+  color: var(--azul);
   margin-bottom: 12px;
+  font-size: 24px;
 }
 
 .card p,
@@ -125,20 +180,26 @@ button {
 
 .imagePlaceholder {
   height: 160px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #0b2d5c, #45aaf2);
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--azul), var(--naranja));
   margin-bottom: 20px;
 }
 
 .blue {
-  background: #eef6ff;
+  background: linear-gradient(180deg, #eef7ff, #ffffff);
 }
 
 footer {
-  background: #0b2d5c;
+  background: var(--azul-oscuro);
   color: white;
   text-align: center;
-  padding: 45px 7%;
+  padding: 50px 7%;
+}
+
+footer h3 {
+  color: var(--naranja);
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 900px) {
@@ -155,6 +216,11 @@ footer {
 
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero {
+    text-align: center;
+    justify-content: center;
   }
 
   .hero h1 {
