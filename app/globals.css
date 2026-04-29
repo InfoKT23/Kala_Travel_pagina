@@ -16,6 +16,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--texto);
   background: #fff;
+  padding-top: 155px;
 }
 
 a {
@@ -23,27 +24,35 @@ a {
   color: inherit;
 }
 
+/* HEADER FIJO COMPLETO */
+.siteHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* FRANJA AZUL */
 .topbar {
   background: var(--azul-oscuro);
   color: white;
   padding: 10px 7%;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 35px;
   font-size: 14px;
+  font-weight: 600;
 }
 
+/* NAVBAR */
 .navbar {
-  padding: 18px 7%;
+  padding: 22px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: white;
   box-shadow: 0 6px 20px rgba(0,0,0,.08);
-
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .logo {
@@ -55,23 +64,36 @@ a {
   object-fit: contain;
 }
 
-.navbar ul {
+/* MENÚ */
+.navMenu {
   display: flex;
   list-style: none;
   gap: 28px;
   font-weight: 700;
 }
 
-.navbar li {
+.navMenu li {
   cursor: pointer;
   transition: color .3s;
 }
 
-.navbar li:hover {
+.navMenu li:hover {
   color: var(--naranja);
 }
 
-button {
+.menuBtn {
+  display: none;
+  background: var(--naranja);
+  color: white;
+  border: none;
+  font-size: 26px;
+  border-radius: 10px;
+  padding: 8px 14px;
+}
+
+/* BOTONES */
+button,
+.accountBtn {
   background: var(--naranja);
   border: none;
   padding: 12px 24px;
@@ -82,11 +104,13 @@ button {
   transition: .3s;
 }
 
-button:hover {
+button:hover,
+.accountBtn:hover {
   background: var(--azul);
   transform: translateY(-2px);
 }
 
+/* HERO */
 .hero {
   min-height: 620px;
   background:
@@ -96,12 +120,12 @@ button:hover {
   background-position: center;
   display: flex;
   align-items: center;
-  padding: 0 60px; /* 🔥 fijo, no porcentaje */
+  padding: 0 60px;
   color: white;
 }
 
 .heroContent {
-  max-width: 1200px; /* más ancho */
+  max-width: 1200px;
 }
 
 .heroContent p {
@@ -124,6 +148,7 @@ button:hover {
   margin-bottom: 30px;
 }
 
+/* SECCIONES */
 .section {
   padding: 85px 7%;
   text-align: center;
@@ -187,6 +212,7 @@ button:hover {
   background: linear-gradient(180deg, #eef7ff, #ffffff);
 }
 
+/* FOOTER */
 footer {
   background: var(--azul-oscuro);
   color: white;
@@ -198,16 +224,53 @@ footer img {
   margin-bottom: 15px;
 }
 
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .topbar,
-  .navbar {
-    flex-direction: column;
-    gap: 15px;
+  body {
+    padding-top: 135px;
   }
 
-  .navbar ul {
-    flex-direction: column;
+  .topbar {
+    font-size: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
     text-align: center;
+    padding: 8px 5%;
+  }
+
+  .navbar {
+    padding: 16px 5%;
+  }
+
+  .logo img {
+    width: 135px;
+    height: auto;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+
+  .accountBtn {
+    display: none;
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 25px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  }
+
+  .navMenu.active {
+    display: flex;
   }
 
   .grid {
@@ -217,9 +280,14 @@ footer img {
   .hero {
     text-align: center;
     justify-content: center;
+    padding: 60px 7%;
   }
 
   .hero h1 {
     font-size: 42px;
+  }
+
+  .hero span {
+    font-size: 18px;
   }
 }
