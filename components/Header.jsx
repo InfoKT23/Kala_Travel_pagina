@@ -13,8 +13,8 @@ export default function Header() {
           <Image
             src="/images/logo.png"
             alt="Kala Travel"
-            width={160}
-            height={60}
+            width={240}
+            height={150}
           />
         </div>
         <ul>
