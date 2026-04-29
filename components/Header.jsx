@@ -3,7 +3,7 @@ export default function Header() {
   return (
     <header>
       <div className="topbar">
-        <span>+593 98 140 7480</span>
+        <span>+593978778672</span>
         <span>info@kalatravel.tours</span>
         <span>Lun - Sab: 09:00 - 19:00</span>
       </div>
