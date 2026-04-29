@@ -1,7 +1,14 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
+
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header>
+    <header className="siteHeader">
       <div className="topbar">
         <span>+593978778672</span>
         <span>info@kalatravel.tours</span>
@@ -9,22 +16,28 @@ export default function Header() {
       </div>
 
       <nav className="navbar">
-        <div className="logo">
+        <Link href="/" className="logo">
           <Image
             src="/images/logo.png"
             alt="Kala Travel"
-            width={240}
-            height={150}
+            width={180}
+            height={80}
           />
-        </div>
-        <ul>
-          <li>Inicio</li>
-          <li>Tours</li>
-          <li>Visas</li>
-          <li>Salidas Confirmadas</li>
-          <li>Seguros de viaje</li>
+        </Link>
+
+        <button className="menuBtn" onClick={() => setOpen(!open)}>
+          ☰
+        </button>
+
+        <ul className={open ? "navMenu active" : "navMenu"}>
+          <li><Link href="/">Inicio</Link></li>
+          <li><Link href="/tours">Tours</Link></li>
+          <li><Link href="/visas">Visas</Link></li>
+          <li><Link href="/salidas">Salidas Confirmadas</Link></li>
+          <li><Link href="/seguros">Seguros de viaje</Link></li>
         </ul>
-        <button>Mi cuenta</button>
+
+        <button className="accountBtn">Mi cuenta</button>
       </nav>
     </header>
   );
