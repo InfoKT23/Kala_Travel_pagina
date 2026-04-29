@@ -1,0 +1,23 @@
+export default function Header() {
+  return (
+    <header>
+      <div className="topbar">
+        <span>+593 98 140 7480</span>
+        <span>serviciocliente@kalatravel.com</span>
+        <span>Lun - Vie: 09:00 - 19:00</span>
+      </div>
+
+      <nav className="navbar">
+        <div className="logo">KALA TRAVEL</div>
+        <ul>
+          <li>Inicio</li>
+          <li>Tours</li>
+          <li>Visas</li>
+          <li>Salidas Confirmadas</li>
+          <li>Seguros de viaje</li>
+        </ul>
+        <button>Mi cuenta</button>
+      </nav>
+    </header>
+  );
+}
