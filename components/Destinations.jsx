@@ -8,7 +8,7 @@ const destinations = [
 export default function Destinations() {
   return (
     <section className="section blue">
-      <h2>Viaja a tu destino favorito</h2>
+      <h2>El destino lo eliges tú; la experiencia la creamos nosotros</h2>
 
       <div className="grid">
         {destinations.map(([city, price]) => (
