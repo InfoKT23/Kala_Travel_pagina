@@ -10,7 +10,7 @@ export default function Services() {
     <section className="section">
       <h2>Tu próxima aventura comienza con un clic</h2>
       <p className="intro">
-        Diseñamos experiencias de viaje personalizadas, cuidando cada detalle.
+        Diseñamos experiencias de viaje personalizadas, cuidando cada detalle
       </p>
 
       <div className="grid">
