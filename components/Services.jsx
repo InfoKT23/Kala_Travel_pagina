@@ -8,7 +8,7 @@ const services = [
 export default function Services() {
   return (
     <section className="section">
-      <h2>Tu próximo viaje a un clic de distancia</h2>
+      <h2>Tu próxima aventura comienza con un click.</h2>
       <p className="intro">
         Diseñamos experiencias de viaje personalizadas, cuidando cada detalle.
       </p>
