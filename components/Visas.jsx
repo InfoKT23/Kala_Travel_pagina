@@ -8,7 +8,7 @@ const visas = [
 export default function Visas() {
   return (
     <section className="section">
-      <h2>Tu puerta abierta al mundo</h2>
+      <h2>Despierta al mundo que te espera</h2>
       <p className="intro">
         Te ayudamos con asesoría para visas y requisitos de viaje.
       </p>
