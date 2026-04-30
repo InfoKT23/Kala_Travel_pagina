@@ -75,6 +75,8 @@ a {
 
 .logo img {
   object-fit: contain;
+  width: 135px;
+  height: auto;
 }
 
 /* MENÚ */
@@ -109,7 +111,7 @@ button,
 .accountBtn {
   background: var(--naranja);
   border: none;
-  padding: 12px 24px;
+  padding: 10px 24px;
   border-radius: 30px;
   color: white;
   font-weight: bold;
@@ -240,7 +242,7 @@ footer img {
 /* RESPONSIVE */
 @media (max-width: 900px) {
   body {
-    padding-top: 135px;
+    padding-top: 105px;
   }
 
   .topbar {
@@ -252,16 +254,18 @@ footer img {
   }
 
   .navbar {
-    padding: 16px 5%;
+    padding: 10px 5%;
   }
 
   .logo img {
-    width: 135px;
+    width: 115px;
     height: auto;
   }
 
   .menuBtn {
     display: block;
+    padding: 6px 12px;
+    font-size: 22px;
   }
 
   .accountBtn {
