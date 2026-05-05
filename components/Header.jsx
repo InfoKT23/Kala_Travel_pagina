@@ -31,7 +31,7 @@ export default function Header() {
 
         <ul className={open ? "navMenu active" : "navMenu"}>
           <li><Link href="/">Inicio</Link></li>
-          <li><Link href="/tours">Tours</Link></li>
+          <li><Link href="/tours">Tours Nacionales</Link></li>
           <li><Link href="/visas">Visas</Link></li>
           <li><Link href="/salidas">Salidas Confirmadas</Link></li>
           <li><Link href="/seguros">Seguros de viaje</Link></li>
