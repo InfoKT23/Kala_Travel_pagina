@@ -1,4 +1,5 @@
 import "./globals.css";
+import PageLoader from "../components/PageLoader";
 
 export const metadata = {
   title: "Kala Travel",
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
-      <body>{children}</body>
+      <body>
+        <PageLoader />
+        {children}
+      </body>
     </html>
   );
 }

@@ -40,9 +40,30 @@ a {
   padding: 10px 7%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 35px;
   font-size: 16px;
   font-weight: 700;
+}
+
+/* WHATSAPP TOPBAR */
+.whatsappTop {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whatsappIcon {
+  color: #25D366;
+  font-size: 20px;
+}
+
+.whatsappTop:hover {
+  color: #25D366;
 }
 
 /* NAVBAR */
@@ -52,7 +73,7 @@ a {
   justify-content: space-between;
   align-items: center;
   background: white;
-  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
 }
 
 .navbar ul li a {
@@ -104,10 +125,10 @@ a {
   font-size: 26px;
   border-radius: 10px;
   padding: 8px 14px;
+  cursor: pointer;
 }
 
-/* BOTONES */
-button,
+/* BOTÓN MI CUENTA */
 .accountBtn {
   background: var(--naranja);
   border: none;
@@ -119,7 +140,6 @@ button,
   transition: .3s;
 }
 
-button:hover,
 .accountBtn:hover {
   background: var(--azul);
   transform: translateY(-2px);
@@ -129,7 +149,7 @@ button:hover,
 .hero {
   min-height: 620px;
   background:
-    linear-gradient(90deg, rgba(11,45,92,.85), rgba(47,125,183,.45)),
+    linear-gradient(90deg, rgba(11, 45, 92, .85), rgba(47, 125, 183, .45)),
     url("/images/hero.jpg");
   background-size: cover;
   background-position: center;
@@ -192,7 +212,7 @@ button:hover,
   background: white;
   padding: 30px;
   border-radius: 22px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
   border-top: 5px solid var(--naranja);
   transition: .3s;
 }
@@ -200,7 +220,7 @@ button:hover,
 .card:hover,
 .travelCard:hover {
   transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(47,125,183,.25);
+  box-shadow: 0 18px 40px rgba(47, 125, 183, .25);
 }
 
 .card h3,
@@ -239,94 +259,7 @@ footer img {
   margin-bottom: 15px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  body {
-    padding-top: 105px;
-  }
-
-  .topbar {
-    font-size: 12px;
-    gap: 10px;
-    flex-wrap: wrap;
-    text-align: center;
-    padding: 8px 5%;
-  }
-
-  .navbar {
-    padding: 10px 5%;
-  }
-
-  .logo img {
-    width: 115px;
-    height: auto;
-  }
-
-  .menuBtn {
-    display: block;
-    padding: 6px 12px;
-    font-size: 22px;
-  }
-
-  .accountBtn {
-    display: none;
-  }
-
-  .navMenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: white;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding: 25px 0;
-    box-shadow: 0 10px 25px rgba(0,0,0,.12);
-  }
-
-  .navMenu.active {
-    display: flex;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    text-align: center;
-    justify-content: center;
-    padding: 60px 7%;
-  }
-
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .hero span {
-    font-size: 18px;
-  }
-  .whatsappTop {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 21px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.whatsappIcon {
-  color: #25D366;
-  font-size: 3px;
-}
-
-.whatsappTop:hover {
-  color: #25D366;
-}
-}
-/* PÁGINA TOURS NACIONALES */
+/* PÁGINAS DE TOURS */
 
 .toursPage {
   background: #ffffff;
@@ -395,6 +328,7 @@ footer img {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 35px;
+  gap: 20px;
 }
 
 .toursTop h2 {
@@ -480,44 +414,13 @@ footer img {
   background: #1ebe5d;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .toursLayout {
-    grid-template-columns: 1fr;
-  }
-
-  .toursSidebar {
-    border-right: none;
-    border-bottom: 1px solid #eeeeee;
-    padding-right: 0;
-    padding-bottom: 25px;
-  }
-
-  .toursGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .toursHeader h1 {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 650px) {
-  .toursGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .toursTop {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .toursHeader h1 {
-    font-size: 32px;
-  }
-}
 /* BOTONES GRID / LISTA */
+
+.toursControls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
 .viewButtons {
   display: flex;
@@ -589,30 +492,7 @@ footer img {
   max-width: 680px;
 }
 
-/* RESPONSIVE LISTA */
-
-@media (max-width: 850px) {
-  .tourCardList {
-    grid-template-columns: 1fr;
-  }
-
-  .tourCardList .tourImage {
-    min-height: 220px;
-  }
-
-  .toursTop {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
-  }
-}
-/* ORDENAMIENTO DE TOURS */
-
-.toursControls {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+/* ORDENAMIENTO */
 
 .sortSelect {
   border: 1px solid #dddddd;
@@ -636,7 +516,172 @@ footer img {
   box-shadow: 0 0 0 3px rgba(11, 55, 104, 0.12);
 }
 
+/* LOADER TRANSPARENTE KALA TRAVEL */
+
+.pageLoader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(11, 45, 92, 0.28);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.pageLoaderFade {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loaderBox {
+  width: 420px;
+  max-width: 90vw;
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.loaderPlaneVideo {
+  width: 380px;
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.35));
+}
+
+.loaderMessage {
+  margin-top: 18px;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .toursLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .toursSidebar {
+    border-right: none;
+    border-bottom: 1px solid #eeeeee;
+    padding-right: 0;
+    padding-bottom: 25px;
+  }
+
+  .toursGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .toursHeader h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-top: 105px;
+  }
+
+  .topbar {
+    font-size: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 8px 5%;
+  }
+
+  .whatsappTop {
+    font-size: 14px;
+  }
+
+  .whatsappIcon {
+    font-size: 18px;
+  }
+
+  .navbar {
+    padding: 10px 5%;
+  }
+
+  .logo img {
+    width: 115px;
+    height: auto;
+  }
+
+  .menuBtn {
+    display: block;
+    padding: 6px 12px;
+    font-size: 22px;
+  }
+
+  .accountBtn {
+    display: none;
+  }
+
+  .navMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 25px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+  }
+
+  .navMenu.active {
+    display: flex;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    text-align: center;
+    justify-content: center;
+    padding: 60px 7%;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero span {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 850px) {
+  .tourCardList {
+    grid-template-columns: 1fr;
+  }
+
+  .tourCardList .tourImage {
+    min-height: 220px;
+  }
+
+  .toursTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
   .toursControls {
     flex-direction: column;
     align-items: flex-start;
@@ -644,5 +689,27 @@ footer img {
 
   .sortSelect {
     width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .toursGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .toursHeader h1 {
+    font-size: 32px;
+  }
+
+  .loaderBox {
+    width: 300px;
+  }
+
+  .loaderPlaneVideo {
+    width: 260px;
+  }
+
+  .loaderMessage {
+    font-size: 15px;
   }
 }
