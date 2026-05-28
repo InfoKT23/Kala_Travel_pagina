@@ -517,3 +517,92 @@ footer img {
     font-size: 32px;
   }
 }
+/* BOTONES GRID / LISTA */
+
+.viewButtons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.viewBtn {
+  border: 1px solid #ddd;
+  background: white;
+  color: #0b3768;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.viewBtn:hover {
+  background: #f4f8fb;
+}
+
+.viewBtn.active {
+  background: #0b3768;
+  color: white;
+  border-color: #0b3768;
+}
+
+/* VISTA LISTA */
+
+.toursList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.tourCardList {
+  background: white;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  align-items: center;
+  border-radius: 18px;
+  overflow: hidden;
+  border-top: 4px solid #ff8c00;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.tourCardList:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+}
+
+.tourCardList .tourImage {
+  height: 100%;
+  min-height: 230px;
+}
+
+.tourCardList .tourInfo {
+  padding: 28px;
+}
+
+.tourCardList .tourInfo h3 {
+  font-size: 26px;
+}
+
+.tourCardList .tourInfo p {
+  max-width: 680px;
+}
+
+/* RESPONSIVE LISTA */
+
+@media (max-width: 850px) {
+  .tourCardList {
+    grid-template-columns: 1fr;
+  }
+
+  .tourCardList .tourImage {
+    min-height: 220px;
+  }
+
+  .toursTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}

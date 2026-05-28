@@ -1,51 +1,64 @@
-const toursNacionales = [
+"use client";
+
+import { useState } from "react";
+
+const toursInternacionales = [
   {
-    nombre: "Joyas del pácifico",
-    precio: "Desde $45",
-    descripcion: "Playas, diversión, relax y paisajes costeros.",
-  },
-  {
-    nombre: "Cuenca Majestuoso",
-    precio: "Desde $39",
-    descripcion: "Historia, cultura, gastronomía y arquitectura colonial.",
-  },
-  {
-    nombre: "Aventura andina - Quilotoa",
-    precio: "Desde $44",
-    descripcion: "Montañas, lagunas, Kayak y pasiajes.",
-  },
-  {
-    nombre: "Quito y Mitad del Mundo",
-    precio: "Desde $135",
-    descripcion: "Centro histórico, cultura y experiencia en la línea ecuatorial.",
-  },
-  {
-    nombre: "Mindo Natural",
-    precio: "Desde $110",
-    descripcion: "Bosque nublado, mariposas, chocolate y aventura.",
-  },
-  {
-    nombre: "Galápagos",
+    nombre: "Panamá Ciudad",
     precio: "Consultar",
-    descripcion: "Islas encantadas, fauna única y experiencias inolvidables.",
+    descripcion:
+      "Disfruta la ciudad de Panamá con hospedaje, compras, vida urbana, gastronomía y una experiencia moderna.",
+  },
+  {
+    nombre: "Panamá Solo Playa",
+    precio: "Consultar",
+    descripcion:
+      "Paquete ideal para descansar frente al mar, disfrutar del sol, la playa y momentos de relajación.",
+  },
+  {
+    nombre: "Panamá + Full Day San Blas",
+    precio: "Consultar",
+    descripcion:
+      "Combina la ciudad de Panamá con una experiencia inolvidable en las islas de San Blas.",
+  },
+  {
+    nombre: "Cartagena Mega Oferta",
+    precio: "Consultar",
+    descripcion:
+      "Vive Cartagena con una opción económica para disfrutar playa, historia, cultura y diversión.",
+  },
+  {
+    nombre: "Cartagena Deluxe",
+    precio: "Consultar",
+    descripcion:
+      "Una experiencia superior en Cartagena con mayor comodidad, mejores servicios y estilo.",
+  },
+  {
+    nombre: "Medellín City Pack",
+    precio: "Consultar",
+    descripcion:
+      "Descubre Medellín con city tour, cultura, paisajes urbanos, gastronomía y experiencias únicas.",
   },
 ];
 
-export default function ToursNacionalesPage() {
+export default function ToursInternacionalesPage() {
+  const [vista, setVista] = useState("grid");
+
   return (
     <main className="toursPage">
       <section className="toursHeader">
-        <span>Tours nacionales</span>
-        <h1>Descubre Ecuador con Kala Travel</h1>
+        <span>Tours internacionales</span>
+        <h1>Explora destinos internacionales con Kala Travel</h1>
         <p>
-          Explora destinos increíbles dentro del país con paquetes diseñados
-          para vivir experiencias únicas.
+          Vive experiencias inolvidables fuera del país con paquetes diseñados
+          para viajar cómodo, seguro y con asesoría personalizada.
         </p>
       </section>
 
       <section className="toursLayout">
         <aside className="toursSidebar">
           <h3>Categorías</h3>
+
           <ul>
             <li>Tours nacionales</li>
             <li>Tours internacionales</li>
@@ -58,13 +71,34 @@ export default function ToursNacionalesPage() {
 
         <div className="toursContent">
           <div className="toursTop">
-            <h2>Paquetes disponibles</h2>
-            <p>Mostrando 1-6 de 6 tours</p>
+            <div>
+              <h2>Paquetes internacionales</h2>
+              <p>Mostrando 1-6 de 6 tours</p>
+            </div>
+
+            <div className="viewButtons">
+              <button
+                className={vista === "grid" ? "viewBtn active" : "viewBtn"}
+                onClick={() => setVista("grid")}
+              >
+                ▦ Grid
+              </button>
+
+              <button
+                className={vista === "list" ? "viewBtn active" : "viewBtn"}
+                onClick={() => setVista("list")}
+              >
+                ☰ Lista
+              </button>
+            </div>
           </div>
 
-          <div className="toursGrid">
-            {toursNacionales.map((tour, index) => (
-              <article className="tourCard" key={index}>
+          <div className={vista === "grid" ? "toursGrid" : "toursList"}>
+            {toursInternacionales.map((tour, index) => (
+              <article
+                className={vista === "grid" ? "tourCard" : "tourCardList"}
+                key={index}
+              >
                 <div className="tourImage">
                   <span>{tour.nombre}</span>
                 </div>
@@ -75,7 +109,7 @@ export default function ToursNacionalesPage() {
                   <strong>{tour.precio}</strong>
 
                   <a
-                    href={`https://wa.me/593978778672?text=Hola%20Kala%20Travel,%20quiero%20informaci%C3%B3n%20sobre%20el%20tour%20${encodeURIComponent(
+                    href={`https://wa.me/593978778672?text=Hola%20Kala%20Travel,%20quiero%20informaci%C3%B3n%20sobre%20el%20paquete%20${encodeURIComponent(
                       tour.nombre
                     )}`}
                     target="_blank"

@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const toursNacionales = [
   {
     nombre: "Joyas del pácifico",
@@ -32,6 +36,8 @@ const toursNacionales = [
 ];
 
 export default function ToursNacionalesPage() {
+  const [vista, setVista] = useState("grid");
+
   return (
     <main className="toursPage">
       <section className="toursHeader">
@@ -46,6 +52,7 @@ export default function ToursNacionalesPage() {
       <section className="toursLayout">
         <aside className="toursSidebar">
           <h3>Categorías</h3>
+
           <ul>
             <li>Tours nacionales</li>
             <li>Tours internacionales</li>
@@ -58,13 +65,34 @@ export default function ToursNacionalesPage() {
 
         <div className="toursContent">
           <div className="toursTop">
-            <h2>Paquetes disponibles</h2>
-            <p>Mostrando 1-6 de 6 tours</p>
+            <div>
+              <h2>Paquetes disponibles</h2>
+              <p>Mostrando 1-6 de 6 tours</p>
+            </div>
+
+            <div className="viewButtons">
+              <button
+                className={vista === "grid" ? "viewBtn active" : "viewBtn"}
+                onClick={() => setVista("grid")}
+              >
+                ▦ Grid
+              </button>
+
+              <button
+                className={vista === "list" ? "viewBtn active" : "viewBtn"}
+                onClick={() => setVista("list")}
+              >
+                ☰ Lista
+              </button>
+            </div>
           </div>
 
-          <div className="toursGrid">
+          <div className={vista === "grid" ? "toursGrid" : "toursList"}>
             {toursNacionales.map((tour, index) => (
-              <article className="tourCard" key={index}>
+              <article
+                className={vista === "grid" ? "tourCard" : "tourCardList"}
+                key={index}
+              >
                 <div className="tourImage">
                   <span>{tour.nombre}</span>
                 </div>
