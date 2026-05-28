@@ -606,3 +606,43 @@ footer img {
     gap: 18px;
   }
 }
+/* ORDENAMIENTO DE TOURS */
+
+.toursControls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sortSelect {
+  border: 1px solid #dddddd;
+  background: white;
+  color: #333333;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  min-width: 230px;
+}
+
+.sortSelect:hover {
+  border-color: #0b3768;
+}
+
+.sortSelect:focus {
+  border-color: #0b3768;
+  box-shadow: 0 0 0 3px rgba(11, 55, 104, 0.12);
+}
+
+@media (max-width: 850px) {
+  .toursControls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sortSelect {
+    width: 100%;
+  }
+}
