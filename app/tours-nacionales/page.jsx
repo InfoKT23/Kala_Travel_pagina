@@ -10,9 +10,9 @@ const toursNacionales = [
     descripcion: "Historia, cultura, gastronomía y arquitectura colonial.",
   },
   {
-    nombre: "Montañita y Ruta del Sol",
-    precio: "Desde $99",
-    descripcion: "Playas, diversión, relax y paisajes costeros.",
+    nombre: "Aventura andina - Quilotoa",
+    precio: "Desde $44",
+    descripcion: "Montañas, lagunas, Kayak y pasiajes.",
   },
   {
     nombre: "Quito y Mitad del Mundo",
