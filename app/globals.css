@@ -311,7 +311,7 @@ footer img {
   color: white;
   text-decoration: none;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 21px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -319,7 +319,7 @@ footer img {
 
 .whatsappIcon {
   color: #25D366;
-  font-size: 21px;
+  font-size: 3px;
 }
 
 .whatsappTop:hover {
