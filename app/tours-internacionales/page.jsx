@@ -41,8 +41,34 @@ const toursInternacionales = [
   },
 ];
 
+function obtenerPrecioNumero(precio) {
+  const numero = precio.replace(/[^0-9]/g, "");
+  return numero ? Number(numero) : 999999;
+}
+
 export default function ToursInternacionalesPage() {
   const [vista, setVista] = useState("grid");
+  const [orden, setOrden] = useState("nombre-az");
+
+  const toursOrdenados = [...toursInternacionales].sort((a, b) => {
+    if (orden === "nombre-az") {
+      return a.nombre.localeCompare(b.nombre);
+    }
+
+    if (orden === "nombre-za") {
+      return b.nombre.localeCompare(a.nombre);
+    }
+
+    if (orden === "precio-bajo") {
+      return obtenerPrecioNumero(a.precio) - obtenerPrecioNumero(b.precio);
+    }
+
+    if (orden === "precio-alto") {
+      return obtenerPrecioNumero(b.precio) - obtenerPrecioNumero(a.precio);
+    }
+
+    return 0;
+  });
 
   return (
     <main className="toursPage">
@@ -76,25 +102,44 @@ export default function ToursInternacionalesPage() {
               <p>Mostrando 1-6 de 6 tours</p>
             </div>
 
-            <div className="viewButtons">
-              <button
-                className={vista === "grid" ? "viewBtn active" : "viewBtn"}
-                onClick={() => setVista("grid")}
-              >
-                ▦ Grid
-              </button>
+            <div className="toursControls">
+              <div className="viewButtons">
+                <button
+                  className={vista === "grid" ? "viewBtn active" : "viewBtn"}
+                  onClick={() => setVista("grid")}
+                >
+                  ▦ Grid
+                </button>
 
-              <button
-                className={vista === "list" ? "viewBtn active" : "viewBtn"}
-                onClick={() => setVista("list")}
+                <button
+                  className={vista === "list" ? "viewBtn active" : "viewBtn"}
+                  onClick={() => setVista("list")}
+                >
+                  ☰ Lista
+                </button>
+              </div>
+
+              <select
+                className="sortSelect"
+                value={orden}
+                onChange={(e) => setOrden(e.target.value)}
               >
-                ☰ Lista
-              </button>
+                <option value="vendidos">Los más vendidos</option>
+                <option value="relevancia">Relevancia</option>
+                <option value="nombre-az">Nombre, A a Z</option>
+                <option value="nombre-za">Nombre, Z a A</option>
+                <option value="precio-bajo">
+                  Precio: de más bajo a más alto
+                </option>
+                <option value="precio-alto">
+                  Precio: de más alto a más bajo
+                </option>
+              </select>
             </div>
           </div>
 
           <div className={vista === "grid" ? "toursGrid" : "toursList"}>
-            {toursInternacionales.map((tour, index) => (
+            {toursOrdenados.map((tour, index) => (
               <article
                 className={vista === "grid" ? "tourCard" : "tourCardList"}
                 key={index}
