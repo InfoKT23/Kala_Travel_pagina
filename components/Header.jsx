@@ -57,6 +57,12 @@ export default function Header() {
           </li>
 
           <li>
+            <Link href="/tours-internacionales" onClick={() => setOpen(false)}>
+              Tours internacionales
+            </Link>
+          </li>
+
+          <li>
             <Link href="/visas" onClick={() => setOpen(false)}>
               Visas
             </Link>
