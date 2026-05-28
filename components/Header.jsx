@@ -1,5 +1,5 @@
 "use client";
-
+import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className="siteHeader">
       <div className="topbar">
-        <span>+593978778672</span>
+        <span> Número de empresa: +593978778672</span>
         <span>info@kalatravel.tours</span>
         <span>Lunes - Viernes: 10:00 A.M. - 19:00 P.M.</span>
       </div>
