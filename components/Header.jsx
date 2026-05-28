@@ -18,7 +18,7 @@ export default function Header() {
           className="whatsappTop"
         >
           <FaWhatsapp className="whatsappIcon" />
-          WhatsApp: +593 978 778 672
+          +593 978 778 672
         </a>
 
         <span>info@kalatravel.tours</span>
