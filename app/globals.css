@@ -41,8 +41,8 @@ a {
   display: flex;
   justify-content: center;
   gap: 35px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 /* NAVBAR */
@@ -307,4 +307,22 @@ footer img {
   .hero span {
     font-size: 18px;
   }
+  .whatsappTop {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.whatsappIcon {
+  color: #25D366;
+  font-size: 21px;
+}
+
+.whatsappTop:hover {
+  color: #25D366;
+}
 }

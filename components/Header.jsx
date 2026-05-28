@@ -1,8 +1,9 @@
 "use client";
-import { FaWhatsapp } from "react-icons/fa";
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,15 @@ export default function Header() {
   return (
     <header className="siteHeader">
       <div className="topbar">
-        <span> Número de empresa: +593978778672</span>
+        <a
+  href="https://wa.me/593978778672"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="whatsappTop"
+>
+  <FaWhatsapp className="whatsappIcon" />
+  +593 978 778 672
+</a>
         <span>info@kalatravel.tours</span>
         <span>Lunes - Viernes: 10:00 A.M. - 19:00 P.M.</span>
       </div>
