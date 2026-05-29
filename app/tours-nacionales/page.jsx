@@ -7,31 +7,74 @@ const toursNacionales = [
     nombre: "Joyas del pácifico",
     precio: "Desde $45",
     descripcion: "Playas, diversión, relax y paisajes costeros.",
+    incluye: [],
+    itinerario: [],
+    imagenes: [],
   },
   {
     nombre: "Cuenca Majestuoso",
     precio: "Desde $39",
     descripcion: "Historia, cultura, gastronomía y arquitectura colonial.",
+    incluye: [],
+    itinerario: [],
+    imagenes: [],
   },
   {
     nombre: "Aventura andina - Quilotoa",
     precio: "Desde $44",
-    descripcion: "Montañas, lagunas, Kayak y pasiajes.",
+    descripcion: "Quilotoa + Laguna de Yambo con salida desde Guayaquil.",
+    incluye: [
+      "Transporte turístico ida y vuelta",
+      "Box lunch",
+      "Almuerzo incluido",
+      "Visita a la Laguna del Quilotoa",
+      "Caminata al cráter opcional",
+      "Tiempo libre para fotos y recorrido",
+      "Visita a la Laguna de Yambo",
+      "Tiempo libre para fotografías",
+      "Parada técnica durante el retorno",
+      "Guía de viaje",
+    ],
+    itinerario: [
+      "01:30 – Reunión del grupo para embarque",
+      "02:00 – Salida desde Guayaquil, Gasolinera Shell frente al aeropuerto",
+      "08:30 – Llegada a la Laguna del Quilotoa",
+      "Caminata hacia el cráter opcional",
+      "Actividades opcionales: kayak o cabalgata",
+      "Tiempo libre para fotos y recorrido",
+      "12:30 – Almuerzo",
+      "14:00 – Salida hacia la Laguna de Yambo",
+      "16:00 – Visita a la Laguna de Yambo",
+      "Tiempo libre para fotografías",
+      "17:30 – Retorno a Guayaquil",
+      "20:30 – Parada técnica para baños o snacks",
+      "23:30 – Llegada aproximada a Guayaquil",
+    ],
+    imagenes: [],
   },
   {
     nombre: "Quito y Mitad del Mundo",
     precio: "Desde $135",
     descripcion: "Centro histórico, cultura y experiencia en la línea ecuatorial.",
+    incluye: [],
+    itinerario: [],
+    imagenes: [],
   },
   {
     nombre: "Mindo Natural",
     precio: "Desde $110",
     descripcion: "Bosque nublado, mariposas, chocolate y aventura.",
+    incluye: [],
+    itinerario: [],
+    imagenes: [],
   },
   {
     nombre: "Galápagos",
     precio: "Consultar",
     descripcion: "Islas encantadas, fauna única y experiencias inolvidables.",
+    incluye: [],
+    itinerario: [],
+    imagenes: [],
   },
 ];
 
@@ -43,6 +86,7 @@ function obtenerPrecioNumero(precio) {
 export default function ToursNacionalesPage() {
   const [vista, setVista] = useState("grid");
   const [orden, setOrden] = useState("nombre-az");
+  const [tourSeleccionado, setTourSeleccionado] = useState(null);
 
   const toursOrdenados = [...toursNacionales].sort((a, b) => {
     if (orden === "nombre-az") {
@@ -169,8 +213,13 @@ export default function ToursNacionalesPage() {
           <div className={vista === "grid" ? "toursGrid" : "toursList"}>
             {toursOrdenados.map((tour, index) => (
               <article
-                className={vista === "grid" ? "tourCard" : "tourCardList"}
+                className={
+                  vista === "grid"
+                    ? "tourCard tourClickable"
+                    : "tourCardList tourClickable"
+                }
                 key={index}
+                onClick={() => setTourSeleccionado(tour)}
               >
                 <div className="tourImage">
                   <span>{tour.nombre}</span>
@@ -181,22 +230,101 @@ export default function ToursNacionalesPage() {
                   <p>{tour.descripcion}</p>
                   <strong>{tour.precio}</strong>
 
-                  <a
-                    href={`https://wa.me/593978778672?text=Hola%20Kala%20Travel,%20quiero%20informaci%C3%B3n%20sobre%20el%20tour%20${encodeURIComponent(
-                      tour.nombre
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
                     className="tourBtn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setTourSeleccionado(tour);
+                    }}
                   >
-                    Cotizar por WhatsApp
-                  </a>
+                    Ver detalles
+                  </button>
                 </div>
               </article>
             ))}
           </div>
         </div>
       </section>
+
+      {tourSeleccionado && (
+        <div
+          className="tourModalOverlay"
+          onClick={() => setTourSeleccionado(null)}
+        >
+          <div className="tourModal" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="tourModalClose"
+              onClick={() => setTourSeleccionado(null)}
+            >
+              ×
+            </button>
+
+            <div className="tourModalHeader">
+              <span>Programa turístico</span>
+              <h2>{tourSeleccionado.nombre}</h2>
+              <strong>{tourSeleccionado.precio}</strong>
+              <p>{tourSeleccionado.descripcion}</p>
+            </div>
+
+            {tourSeleccionado.imagenes.length > 0 ? (
+              <div className="tourGallery">
+                {tourSeleccionado.imagenes.map((imagen, index) => (
+                  <img src={imagen} alt={tourSeleccionado.nombre} key={index} />
+                ))}
+              </div>
+            ) : (
+              <div className="tourGalleryPlaceholder">
+                <p>Aquí puedes agregar fotos del programa</p>
+              </div>
+            )}
+
+            {tourSeleccionado.incluye.length > 0 && (
+              <div className="tourModalSection">
+                <h3>El tour incluye:</h3>
+
+                <ul className="tourIncludes">
+                  {tourSeleccionado.incluye.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {tourSeleccionado.itinerario.length > 0 && (
+              <div className="tourModalSection">
+                <h3>Itinerario:</h3>
+
+                <div className="tourItinerary">
+                  {tourSeleccionado.itinerario.map((item, index) => (
+                    <p key={index}>{item}</p>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {tourSeleccionado.incluye.length === 0 &&
+              tourSeleccionado.itinerario.length === 0 && (
+                <div className="tourModalSection">
+                  <p>
+                    Pronto agregaremos más información detallada de este
+                    programa. Puedes consultar disponibilidad por WhatsApp.
+                  </p>
+                </div>
+              )}
+
+            <a
+              href={`https://wa.me/593978778672?text=Hola%20Kala%20Travel,%20quiero%20informaci%C3%B3n%20sobre%20el%20tour%20${encodeURIComponent(
+                tourSeleccionado.nombre
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="modalWhatsappBtn"
+            >
+              Cotizar este tour por WhatsApp
+            </a>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
