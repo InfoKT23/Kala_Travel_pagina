@@ -67,15 +67,49 @@ export default function ToursNacionalesPage() {
   return (
     <main className="toursPage">
       <section className="toursHeader">
-        <span>Tours nacionales</span>
-        <h1>Descubre Ecuador con Kala Travel</h1>
-        <p>
-          Explora destinos increíbles dentro del país con paquetes diseñados
-          para vivir experiencias únicas.
-        </p>
+        <div className="toursHeaderContent">
+          <div className="toursHeaderText">
+            <span>Tours nacionales</span>
+
+            <h1>Descubre Ecuador con Kala Travel</h1>
+
+            <p>
+              Viaja por los destinos más increíbles del país con paquetes
+              accesibles, asesoría personalizada y atención directa por
+              WhatsApp.
+            </p>
+
+            <div className="heroActions">
+              <a
+                href="https://wa.me/593978778672?text=Hola%20Kala%20Travel,%20quiero%20informaci%C3%B3n%20sobre%20tours%20nacionales"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="heroPrimaryBtn"
+              >
+                Cotizar por WhatsApp
+              </a>
+
+              <a href="#paquetes" className="heroSecondaryBtn">
+                Ver paquetes
+              </a>
+            </div>
+          </div>
+
+          <div className="heroInfoCard">
+            <strong>Desde $39</strong>
+            <p>Paquetes nacionales disponibles</p>
+
+            <ul>
+              <li>Atención personalizada</li>
+              <li>Asesoría por WhatsApp</li>
+              <li>Destinos dentro de Ecuador</li>
+              <li>Opciones para familias y grupos</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <section className="toursLayout">
+      <section className="toursLayout" id="paquetes">
         <aside className="toursSidebar">
           <h3>Categorías</h3>
 
@@ -83,7 +117,7 @@ export default function ToursNacionalesPage() {
             <li>Tours nacionales</li>
             <li>Tours internacionales</li>
             <li>Visas</li>
-            <li>Salidas confirmadas</li>
+            <li>Plan acumulactivo</li>
             <li>Seguros de viaje</li>
             <li>Asesoría personalizada</li>
           </ul>

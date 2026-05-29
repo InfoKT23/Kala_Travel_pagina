@@ -5,39 +5,41 @@ import { usePathname } from "next/navigation";
 
 export default function PageLoader() {
   const pathname = usePathname();
-  const [show, setShow] = useState(true);
-  const [fade, setFade] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
+  const [closing, setClosing] = useState(false);
 
   useEffect(() => {
-    setShow(true);
-    setFade(false);
+    setShowLoader(true);
+    setClosing(false);
 
-    const fadeTimer = setTimeout(() => {
-      setFade(true);
-    }, 2600);
+    const closeAnimation = setTimeout(() => {
+      setClosing(true);
+    }, 1800);
 
-    const removeTimer = setTimeout(() => {
-      setShow(false);
-    }, 3100);
+    const removeLoader = setTimeout(() => {
+      setShowLoader(false);
+    }, 2300);
 
     return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(removeTimer);
+      clearTimeout(closeAnimation);
+      clearTimeout(removeLoader);
     };
   }, [pathname]);
 
-  if (!show) return null;
+  if (!showLoader) return null;
 
   return (
-    <div className={fade ? "pageLoader pageLoaderFade" : "pageLoader"}>
+    <div className={closing ? "pageLoader closing" : "pageLoader"}>
       <div className="loaderBox">
         <video
+          key={pathname}
           className="loaderPlaneVideo"
           src="/videos/loader-avion.mp4"
           autoPlay
           muted
-          loop
           playsInline
+          loop
+          preload="auto"
         />
 
         <p className="loaderMessage">Preparando tu próxima aventura...</p>

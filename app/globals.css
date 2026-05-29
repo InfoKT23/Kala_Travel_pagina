@@ -713,3 +713,251 @@ footer img {
     font-size: 15px;
   }
 }
+/* ============================= */
+/* FIX BOTONES HOME KALA TRAVEL */
+/* ============================= */
+
+.hero a,
+.hero button,
+.card a,
+.card button,
+.travelCard a,
+.travelCard button,
+.section a,
+.section button {
+  display: inline-block;
+  background: var(--naranja);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero a:hover,
+.hero button:hover,
+.card a:hover,
+.card button:hover,
+.travelCard a:hover,
+.travelCard button:hover,
+.section a:hover,
+.section button:hover {
+  background: var(--azul);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Evita que los botones Grid/Lista se dañen */
+.viewBtn {
+  border: 1px solid #ddd;
+  background: white;
+  color: #0b3768;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.viewBtn.active {
+  background: #0b3768;
+  color: white;
+  border-color: #0b3768;
+}
+
+/* ============================= */
+/* LOADER KALA TRAVEL CORREGIDO */
+/* ============================= */
+
+.pageLoader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(11, 45, 92, 0.35);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.pageLoader.closing {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loaderBox {
+  width: 430px;
+  max-width: 90vw;
+  text-align: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.loaderPlaneVideo {
+  width: 390px;
+  max-width: 90vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 18px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.45));
+}
+
+.loaderMessage {
+  margin-top: 16px;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Celular */
+@media (max-width: 650px) {
+  .loaderBox {
+    width: 300px;
+  }
+
+  .loaderPlaneVideo {
+    width: 270px;
+  }
+
+  .loaderMessage {
+    font-size: 15px;
+  }
+}
+/* BANNER MEJORADO PARA PÁGINAS DE TOURS */
+
+.toursHeader {
+  background: linear-gradient(90deg, #0b3768, #91bdd8);
+  color: white;
+  padding: 80px 7%;
+}
+
+.toursHeaderContent {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.toursHeaderText span {
+  color: #ff8c00;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.toursHeaderText h1 {
+  font-size: 52px;
+  font-weight: 900;
+  margin: 15px 0;
+  max-width: 850px;
+}
+
+.toursHeaderText p {
+  font-size: 19px;
+  max-width: 720px;
+  line-height: 1.6;
+}
+
+.heroActions {
+  display: flex;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.heroPrimaryBtn,
+.heroSecondaryBtn {
+  display: inline-block;
+  padding: 13px 24px;
+  border-radius: 30px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.heroPrimaryBtn {
+  background: #ff8c00;
+  color: white;
+}
+
+.heroPrimaryBtn:hover {
+  background: #25d366;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.heroSecondaryBtn {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.heroSecondaryBtn:hover {
+  background: white;
+  color: #0b3768;
+}
+
+.heroInfoCard {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 26px;
+  padding: 32px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+}
+
+.heroInfoCard strong {
+  display: block;
+  color: #ff8c00;
+  font-size: 38px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.heroInfoCard p {
+  font-size: 17px;
+  margin-bottom: 18px;
+}
+
+.heroInfoCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.heroInfoCard li {
+  padding: 8px 0;
+  font-weight: 700;
+}
+
+.heroInfoCard li::before {
+  content: "✓ ";
+  color: #25d366;
+  font-weight: 900;
+}
+
+@media (max-width: 900px) {
+  .toursHeaderContent {
+    grid-template-columns: 1fr;
+  }
+
+  .toursHeaderText h1 {
+    font-size: 38px;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
